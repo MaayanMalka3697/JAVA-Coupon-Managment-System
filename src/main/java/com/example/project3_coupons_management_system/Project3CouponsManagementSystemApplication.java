@@ -10,7 +10,7 @@ public class Project3CouponsManagementSystemApplication {
 		SpringApplication.run(Project3CouponsManagementSystemApplication.class, args);
 
 
-		
+
 	}
 
 }
