@@ -5,6 +5,7 @@ import com.example.project3_coupons_management_system.Entityes.Customer;
 import com.example.project3_coupons_management_system.Entityes.User;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -15,6 +16,10 @@ public class AdminService extends ClientService{
         return (user.getEmail().equals("admin@admin.com") && user.getPassword().equals("123456"));
     }
 
+    public Customer GetCustomerByID(int ID)
+    {
+       return customerRepository.getReferenceById(ID);
+    }
     public void AddNewCustomer(Customer c)
     {
         //TODO: להוסיף בדיקות תקינות
@@ -31,6 +36,11 @@ public class AdminService extends ClientService{
     {
         customerRepository.delete(c);
     }
+    public void DeleteCustomer(int ID)
+    {
+        customerRepository.delete(GetCustomerByID(ID));
+    }
+
     public List<Customer> GetAllCustomers()
     {
         return customerRepository.findAll();
@@ -43,6 +53,13 @@ public class AdminService extends ClientService{
 
     //**********************************************************
     //Company
+
+
+    public Company GetCompanyByID(int ID)
+    {
+        return companyRepository.getReferenceById(ID);
+
+    }
     public void AddNewCompany(Company c)
     {
         //TODO: להוסיף בדיקות תקינות
@@ -58,6 +75,9 @@ public class AdminService extends ClientService{
     public void DeleteCompany(Company c)
     {
         companyRepository.delete(c);
+    }
+    public void DeleteCompany(int ID){
+        companyRepository.delete(GetCompanyByID(ID));
     }
     public List<Company> GetAllCompanies()
     {
