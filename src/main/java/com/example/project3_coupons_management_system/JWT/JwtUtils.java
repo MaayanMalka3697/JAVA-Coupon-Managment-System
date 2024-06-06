@@ -1,7 +1,19 @@
 package com.example.project3_coupons_management_system.JWT;
 
-import jakarta.servlet.Filter;
+import com.example.project3_coupons_management_system.Entityes.ClientType;
+import jakarta.servlet.*;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.Claims;
 import org.springframework.stereotype.Service;
+import org.springframework.http.HttpMethod;
+import io.jsonwebtoken.SignatureAlgorithm;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.Filter;
+import java.io.IOException;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 public class JwtUtils implements Filter {
@@ -93,8 +105,6 @@ public class JwtUtils implements Filter {
         }
         return bool;
     }
-
-
 
 
 

@@ -16,6 +16,8 @@ public abstract class  ClientService {
     @Autowired
     protected CompanyRepository companyRepository;
 
-   public abstract boolean Login(User user);
+    public abstract boolean Login(String email, String password) throws Exception;
+
+    public abstract boolean Login(User user) throws Exception;
 
 }

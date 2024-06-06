@@ -12,6 +12,11 @@ import java.util.List;
 public class AdminService extends ClientService{
 
     @Override
+    public boolean Login(String email, String password) throws Exception {
+        return Login(new User(email,password));
+    }
+
+    @Override
     public boolean Login(User user) {
         return (user.getEmail().equals("admin@admin.com") && user.getPassword().equals("123456"));
     }

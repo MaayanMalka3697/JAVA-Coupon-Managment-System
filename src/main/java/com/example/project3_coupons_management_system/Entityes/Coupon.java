@@ -3,6 +3,9 @@ package com.example.project3_coupons_management_system.Entityes;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
+
 
 @Entity
 @Table(name="Coupon")
@@ -21,7 +24,8 @@ public class Coupon {
     int amount;
     double price;
     String image;
-
+    @OneToMany
+    private Set<Customer> customers = new HashSet<Customer>();
     public Coupon() {
     }
 
